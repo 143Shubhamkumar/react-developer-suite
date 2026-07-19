@@ -1,0 +1,181 @@
+@reference "tailwindcss";
+
+/* 1. MAIN BACKGROUND */
+.page-container {
+  @apply min-h-screen bg-[#05070a] text-slate-100 flex flex-col;
+}
+
+.content-wrapper {
+  @apply max-w-7xl mx-auto flex-grow w-full px-6 md:px-8;
+}
+
+/* ADVANCED NAVBAR: GLASSMORPHISM & GRADIENTS */
+.navbar {
+  @apply sticky top-0 z-50 bg-[#05070a]/80 backdrop-blur-xl border-b border-white/5 py-4 transition-all duration-300;
+}
+
+.navbar-content {
+  @apply max-w-7xl mx-auto flex justify-between items-center px-6;
+}
+
+.nav-logo {
+  @apply text-xl md:text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400 hover:from-blue-400 hover:to-indigo-300 transition-all duration-300 flex items-center gap-2;
+}
+
+.nav-links {
+  @apply flex gap-8 items-center;
+}
+
+.nav-link {
+  @apply text-xs font-black uppercase tracking-widest text-slate-400 hover:text-blue-400 transition-all duration-300 relative py-1;
+}
+
+/* Underline effect for links */
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  @apply w-full;
+}
+
+.nav-link.active {
+  @apply text-blue-400;
+}
+
+/* Mobile Nav Styles */
+.nav-link-mobile {
+  @apply block text-slate-400 hover:text-blue-400 text-xs font-black uppercase tracking-widest py-3 border-b border-white/5 transition-colors;
+}
+
+.nav-link-mobile.active {
+  @apply text-blue-400 border-b border-blue-500/20 pl-2;
+}
+
+/* ADVANCED FOOTER: GRID & SOCIALS */
+.footer {
+  @apply bg-[#030406] border-t border-white/5 pt-16 pb-8 mt-20;
+}
+
+.footer-content {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+.footer-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-12 mb-12;
+}
+
+.footer-brand h3 {
+  @apply text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400 mb-4;
+}
+
+.footer-brand p {
+  @apply text-slate-500 text-xs leading-relaxed max-w-sm;
+}
+
+.footer-links-col h4 {
+  @apply text-white font-bold uppercase text-[10px] tracking-widest mb-6;
+}
+
+.footer-links-list {
+  @apply flex flex-col gap-3;
+}
+
+.footer-item-link {
+  @apply text-slate-500 hover:text-blue-400 text-xs font-medium transition-colors;
+}
+
+.footer-bottom {
+  @apply border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold text-slate-600 tracking-wider uppercase;
+}
+
+/* HEADER AND SEARCH */
+.search-header {
+  @apply text-center my-16 space-y-4;
+}
+
+.search-title {
+  @apply text-5xl font-black text-white tracking-tight;
+}
+
+/* MOVIE GRID */
+.movie-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8;
+}
+
+/* DETAILS PAGE STYLES */
+.details-wrapper {
+  @apply max-w-5xl mx-auto py-10;
+}
+
+.back-button {
+  @apply flex items-center gap-2 px-6 py-3 bg-blue-600/10 text-blue-400 border border-blue-500/20 rounded-xl font-black text-[10px] uppercase tracking-[0.25em] hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] transition-all duration-500 mb-10 w-fit cursor-pointer;
+}
+
+.details-card {
+  @apply flex flex-col md:flex-row gap-12 bg-slate-900/40 backdrop-blur-xl border border-slate-800/80 p-8 md:p-10 rounded-[2.5rem] shadow-2xl;
+}
+
+.details-image {
+  @apply w-full md:w-[320px] aspect-[2/3] object-cover rounded-3xl shadow-2xl ring-1 ring-white/10;
+}
+
+.details-info-section {
+  @apply flex-1 flex flex-col gap-6;
+}
+
+.details-title {
+  @apply text-4xl md:text-5xl font-black text-white leading-tight;
+}
+
+.info-label {
+  @apply text-slate-500 text-[10px] font-black uppercase tracking-widest block mb-1;
+}
+
+.info-value {
+  @apply text-base text-slate-200 font-medium;
+}
+
+.details-summary {
+  @apply mt-6 text-slate-400 leading-relaxed text-sm border-t border-white/5 pt-8;
+}
+
+.loading-screen {
+  @apply min-h-screen flex items-center justify-center bg-[#05070a] text-blue-500 text-xs font-black uppercase tracking-[0.5em] animate-pulse;
+}
+
+/* ANIMATIONS & EFFECTS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* CUSTOM SCROLLBAR FOR GRIDS/LISTS */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
